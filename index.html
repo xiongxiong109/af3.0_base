@@ -3,7 +3,7 @@
 <!--HTML5 doctype-->
 <html>
 <head>
-	<title>纯净的afui-3.0.0模板</title>
+	<title>af3.0页面结构整理</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,39 +14,59 @@
 	<link rel="stylesheet" href="css/main.css">
 	<!-- 自定义css -->
 	<script type="text/javascript" charset="utf-8" src="./lib/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="./lib/fastclick/1.0.3/fastclick.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
 	<!-- 自定义js -->
 	<script type="text/javascript" src="./lib/main.js"></script>
 	<!-- 自定义js中必须要做的事有:取消自动加载，取消操作系统样式，手动加载 -->
 </head>
 <body>
-	<div id="afui">
-		<!--加载页面-->
-		<div id="splashscreen" class="ui-loader heavy">
-			<span class="ui-icon ui-icon-loading spin"></span>
-			<h1>加载中...</h1>
-		</div>
-		<!--main screen view-->
-		<div class="view" id="mainview">
+
+		<div class="view" id="mainView">
+			<!-- header -->
 			<header>
-				<h1>title</h1>
+				<h1>af3.0页面结构整理</h1>
 			</header>
+			<!-- main -->
 			<div class="pages">
-				<!--PAGE:home-->
-				<div class="panel" id="home" title="home">
-					至少要有一个panel
-					更多的api可以去参考af的官方破demo
+				<!-- panels holds here -->
+				<!-- main panel -->
+				<div class="panel" data-title="页面一的标题" id="main" selected="true">
+					<p>af3中不再自己实现DOM选择器，而是选择基于<em>jquey</em>或兼容jquery的库如zepto等，touch layer也依靠fastclick。</p>
+					<p><a href="http://www.tuicool.com/articles/7bENFr">点击查看Intel App Framework 3.0的变化</a></p>
+					<ol>
+						<li>我们不再维护自己的选择器库（query selector library），我们建议使用 jQuery。
+						<li>触摸插件（The TouchLayer plugin）被删除了，推荐使用FastClick from FTLabs*</li>
+						<li>我们建议使用系统本地滚动支持以获取高性能。你仍然可以使用任何你熟悉的JavaScript scroller。</li>
+						<li>页面结构改为以View来组织， 现在可以通过共用view来共享Headers, footers 和 navs。LESS* based CSS files.</li>
+						<li>CSS驱动的变化动画，你可以通过css定义自定义动画。新的plugins 包括swipe to reveal</li>
+						<li>支持页面的部分装载。框架的 JS object命名空间改为$.afui以便于兼容 jQuery UI</li>
+					</ol>
+					<a href="#origin" data-transition="invoke">点击查看当前版本的页面组织结构</a>
 				</div>
-				<!--PAGE: page1-->
+				<!-- origin panel -->
+				<div class="panel" data-title="页面组织结构" id="origin">
+					<h3>页面组织结构</h3>
+					&lt;head&gt;<br>
+					        &lt;title&gt;LearAF3&lt;/title&gt;<br>
+					        &lt;meta charset="UTF-8"&gt;<br>
+					        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+					        &lt;link rel="stylesheet" type="text/css" href="js/af3.0/af.ui.css" /&gt;<br>
+					        &lt;link rel="stylesheet" type="text/css" href="js/af3.0/icons.min.css" /&gt;<br>
+					        &lt;script src="js/libs/jquery/jquery-2.1.1.min.js"&gt;&lt;/script&gt;<br>
+					        &lt;script src="js/libs/fastclick/fastclick-1.0.3.min.js"&gt;&lt;/script&gt;<br>
+					        &lt;script src="js/af3.0/appframework.ui.js"&gt;&lt;/script&gt;<br>
+					   　　  ...<br>    
+					  &lt;/head&gt;<br>
+					  <p>这里引入了jquery和fastclick，没有了appframework.js</p>
+					  <a href="http://app-framework-software.intel.com/documentation.php#afui/afui_layout">app framework 3.0 的api文档</a>
+					  <a href="http://www.cnblogs.com/dajianshi/p/4317042.html" target="_blank">博文:Learn AF3</a>
+				</div>
 			</div>
+			<!-- footer -->
 			<footer>
-				<a href="#home" class="icon home"></a>
-				<a href="#user" class="icon user"></a>
-				<a href="#clock" class="icon clock"></a>
-				<a href="#phone" class="icon phone"></a>
+				<a href="#main" class="icon home" data-transition="slide"></a>
 			</footer>
 		</div>
-	</div>
 </body>
 </html>
