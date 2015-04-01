@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+	<title>纯净的afui-3.0.0模板</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/icons.css">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/af.ui.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!-- 自定义css -->
+	<script type="text/javascript" charset="utf-8" src="./lib/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/fastclick/1.0.3/fastclick.min.js"></script>
+	<!-- 自定义js -->
+	<script type="text/javascript" src="./lib/main.js"></script>
+	<!-- 自定义js中必须要做的事有:取消自动加载，取消操作系统样式，手动加载 -->
+</head>
+<body>
+	<div id="afui">
+		<!--加载页面-->
+		<div id="splashscreen" class="ui-loader heavy">
+			<span class="ui-icon ui-icon-loading spin"></span>
+			<h1>加载中...</h1>
+		</div>
+		<!--main screen view-->
+		<div class="view" id="mainview">
+			<header>
+				<h1>title</h1>
+			</header>
+			<div class="pages">
+				<!--PAGE:home-->
+				<div class="panel" id="home" title="home">
+					至少要有一个panel
+					更多的api可以去参考af的官方破demo
+				</div>
+				<!--PAGE: page1-->
+			</div>
+			<footer>
+				<a href="#home" class="icon home"></a>
+				<a href="#user" class="icon user"></a>
+				<a href="#clock" class="icon clock"></a>
+				<a href="#phone" class="icon phone"></a>
+			</footer>
+		</div>
+	</div>
+</body>
+</html>
