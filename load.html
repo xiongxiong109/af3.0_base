@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+	<title>af3.0配合脚本的页面加载</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/icons.css">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/af.ui.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!-- 自定义css -->
+	<script type="text/javascript" charset="utf-8" src="./lib/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/fastclick/1.0.3/fastclick.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
+	<!-- 自定义js -->
+	<script type="text/javascript" src="./lib/main.js"></script>
+</head>
+	<body>
+		<div id="afui">
+			<!-- loading page -->
+			<div id="splashscreen" class="ui-loader heavy">
+				Bear Cambridge Loading...
+				<br>
+				<br>
+				<span class="ui-icon ui-icon-loading spin"></span>
+			</div>
+			<!-- views -->
+			<div class="view active">
+				<header>
+					<h1>公共头部</h1>
+				</header>
+				<div class="pages">
+					<div class="panel">
+						<a href="#" id="slideUp">电话簿</a>
+					</div>
+				</div>
+				<footer>
+					<a href="#" class="icon user"></a>
+				</footer>
+			</div>
+			<script type="text/javascript">
+				$("#slideUp").click(function(){
+					$.afui.actionsheet([{
+					    text: 'back',
+					    cssClasses: 'red',
+					    handler: function () { $.afui.goBack(); }
+					}, {
+					    text: 'show alert 5',
+					    cssClasses: 'blue',
+					    handler: function () { alert("hi"); }
+					}, {
+					    text: 'show alert 6',
+					    cssClasses: '',
+					    handler: function () { alert("goodbye"); }
+					}]);
+				});
+			</script>
+		</div>	
+	</body>
+</html>

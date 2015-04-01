@@ -21,8 +21,9 @@
 	<!-- 自定义js中必须要做的事有:取消自动加载，取消操作系统样式，手动加载 -->
 </head>
 <body>
-
-		<div class="view" id="mainView">
+	<div id="afui">
+		<!-- 用view来显示页面 -->
+		<div class="view active" id="mainView">
 			<!-- header -->
 			<header>
 				<h1>af3.0页面结构整理</h1>
@@ -31,7 +32,7 @@
 			<div class="pages">
 				<!-- panels holds here -->
 				<!-- main panel -->
-				<div class="panel" data-title="页面一的标题" id="main" selected="true">
+				<div class="panel active" id="main">
 					<p>af3中不再自己实现DOM选择器，而是选择基于<em>jquey</em>或兼容jquery的库如zepto等，touch layer也依靠fastclick。</p>
 					<p><a href="http://www.tuicool.com/articles/7bENFr">点击查看Intel App Framework 3.0的变化</a></p>
 					<ol>
@@ -44,29 +45,27 @@
 					</ol>
 					<a href="#origin" data-transition="invoke">点击查看当前版本的页面组织结构</a>
 				</div>
-				<!-- origin panel -->
-				<div class="panel" data-title="页面组织结构" id="origin">
-					<h3>页面组织结构</h3>
-					&lt;head&gt;<br>
-					        &lt;title&gt;LearAF3&lt;/title&gt;<br>
-					        &lt;meta charset="UTF-8"&gt;<br>
-					        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
-					        &lt;link rel="stylesheet" type="text/css" href="js/af3.0/af.ui.css" /&gt;<br>
-					        &lt;link rel="stylesheet" type="text/css" href="js/af3.0/icons.min.css" /&gt;<br>
-					        &lt;script src="js/libs/jquery/jquery-2.1.1.min.js"&gt;&lt;/script&gt;<br>
-					        &lt;script src="js/libs/fastclick/fastclick-1.0.3.min.js"&gt;&lt;/script&gt;<br>
-					        &lt;script src="js/af3.0/appframework.ui.js"&gt;&lt;/script&gt;<br>
-					   　　  ...<br>    
-					  &lt;/head&gt;<br>
-					  <p>这里引入了jquery和fastclick，没有了appframework.js</p>
-					  <a href="http://app-framework-software.intel.com/documentation.php#afui/afui_layout">app framework 3.0 的api文档</a>
-					  <a href="http://www.cnblogs.com/dajianshi/p/4317042.html" target="_blank">博文:Learn AF3</a>
-				</div>
 			</div>
 			<!-- footer -->
 			<footer>
-				<a href="#main" class="icon home" data-transition="slide"></a>
+				<a href="#origin" class="icon user" data-transition="down-reveal"></a>
 			</footer>
 		</div>
+		<!-- 不同header与footer的view -->
+		<div class="view">
+			<header>
+				<h1>页面组织结构</h1>
+				<a class="menuButton"></a>
+			</header>
+			<div class="pages">     
+				<div class="panel active" id="origin">
+					<a class="button previous" href="#main" style="border:none;">prev</a>
+				</div>
+			</div>
+			<footer>
+				<a href="#main" class="icon home" data-transition="up-reveal"></a>
+			</footer>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+	<title>af3.0侧边栏</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/icons.css">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/af.ui.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!-- 自定义css -->
+	<script type="text/javascript" charset="utf-8" src="./lib/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/fastclick/1.0.3/fastclick.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
+	<!-- 自定义js -->
+	<script type="text/javascript" src="./lib/main.js"></script>
+</head>
+	<body>
+		<div id="afui">
+			<!-- main -->
+			<div class="view active" id="mainView">
+				<header>
+					<a href="#" class="menuButton" data-right-menu="rightMenu" data-transition="reveal"></a>
+					<h1>侧边栏显示</h1>
+				</header>
+				<div class="pages" id="pSlider">
+					<!-- panels -->
+					<div class="panel active" id="home">
+						<h3>侧边栏的打开有两种方式</h3>
+						<ul class="list">
+							<li class="divider"></li>
+							<li>
+								<h3>1.通过锚元素打开侧边栏</h3>
+							</li>
+							<li>
+								<a href="#" class="icon phone" data-left-menu="rightMenu" data-transition="push"></a>
+							</li>
+							<li class="divider"></li>
+							<li><h3>2.通过脚本打开侧边栏</h3></li>
+							<li>尝试左滑屏幕</li>
+							<li class="divider"></li>
+							<li><a href="#" onclick="$.afui.popup('我是对话框')">点击弹出对话框</a></li>
+							<li><a href="#" id="poper">高级对话框设置</a></li>
+							<script type="text/javascript">
+								$("#poper").click(function(){
+									$.afui.popup({
+										title:"我是高级对话框",
+										message:"这是一个高级对话框，我可以对多个属性进行设置",
+										cancelText:"取消我",
+										doneText:"确定",
+										cancelCallback:function(){
+											$.afui.popup({
+												title:"取消提示",
+												message:"您取消了对话框,这个对话框只有取消按钮哦",
+												cancelText:"是的，少废话",
+												cancelOnly:true
+											});
+										},
+										doneCallback:function(){
+											$.afui.popup({
+												title:"确定提示",
+												message:"您点击了确定按钮",
+												cancelText:"真聪明",
+												cancelOnly:true
+											});
+										}
+									});
+								});
+							</script>
+							<li><a href="#" id="login">登录对话框设置</a></li>
+							<script type="text/javascript">
+								$("#login").click(function(){
+									$.afui.blockUI(.8);
+									$.afui.popup({
+										title:"请登录",
+										message:"用户名:<input type='text' /><br />密码:<input type='password'/>",
+										cancelText:"取消",
+										doneText:"登录",
+										doneCallback:function(){
+											$.afui.showMask("正在登录");
+											setTimeout($.afui.hideMask,2000);
+										}
+									});
+								});
+							</script>
+						</ul>
+					</div>
+				</div>
+				<script type="text/javascript">
+					$("#pSlider").on({
+						"swipeRight":function(e){
+							console.log(e);
+							$.afui.drawer.show("#leftMenu",'left','reveal');
+						}
+					});
+				</script>
+				<!-- 同一个view的侧边栏写在view内 -->
+				<nav id="rightMenu">
+					<header>
+						<h1>名片夹</h1>
+					</header>
+					<ul class="list inset">
+						<li><h3>熊熊</h3></li>
+						<li>H5前端工程师</li>
+						<li class="divider"></li>
+						<li><h3>熊熊109</h3></li>
+						<li>Web前端工程师</li>
+						<li class="divider"></li>
+					</ul>
+				</nav>
+				<nav id="leftMenu">
+					<header>
+						<h1>工资卡</h1>
+					</header>
+					<ul class="list inset">
+							<li>
+								<h3>中国农业银行</h3>
+								<p>622821 0770001 801914</p>
+							</li>
+							<li>
+								<h3>工商银行</h3>
+								<p>622821 0770001 801914</p>
+							</li>
+							<li>
+								<h3>建设银行</h3>
+								<p>622821 0770001 801914</p>
+							</li>
+						</ul>
+				</nav>
+			</div>
+		</div>
+	</body>
+</html>

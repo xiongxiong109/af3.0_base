@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+	<title>af3.0表单控件相关</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/icons.css">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/af.ui.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!-- 自定义css -->
+	<script type="text/javascript" charset="utf-8" src="./lib/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/fastclick/1.0.3/fastclick.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
+	<!-- 自定义js -->
+	<script type="text/javascript" src="./lib/main.js"></script>
+</head>
+	<body>
+		<div id="afui">
+			<div class="view">
+				<header>
+					<h1>表单控件相关</h1>
+				</header>
+				<div class="pages">
+					<div class="panel">
+						<h3>表单控件</h3>
+							<ul class="list inset">
+								<li>
+									是否开启自动杀敌?
+									<input type="checkbox" class="toggle" name="switch" id="switch" checked>
+									<label for="switch" data-on="yes" data-off="no"><span></span></label>
+								</li>
+								<li>
+									<!-- radio button-->
+									<input type="radio" name="gender" value='Male' id="Male" >  <label for="Male">Male</label>
+									<br>
+									<input type="radio" name="gender" value='Female' id="Female" ><label for="Female">Female</label>
+								</li>
+							</ul>
+							<input type="checkbox" name="confirm" id="confirm"><label for="confirm">Do you agree to the terms?</label>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</body>
+</html>
