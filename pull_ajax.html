@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+	<title>af3.0页面结构整理</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/icons.css">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/af.ui.css">
+	<!-- 自定义css -->
+	<link rel="stylesheet" href="css/pull.css">
+	<script type="text/javascript" charset="utf-8" src="./lib/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./lib/iscroll-probe/5.1.3/iscroll-probe.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/fastclick/1.0.3/fastclick.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
+	<script type="text/javascript" src="./lib/pull.js"></script>
+</head>
+	<body onload="loaded()">
+		<div id="afui">
+			<div class="view">
+				<header>
+					<h1>豆瓣喜剧电影</h1>
+				</header>
+				<div class="pages">
+					<div class="panel">
+						<div id="wrapper">
+							<div id="scroller">
+								<div class="pullDown">
+									<span class="pullDownIcon">&nbsp;</span>
+									<span class="pullDownLabel">下拉获取更多数据...</span>
+								</div>
+								<ul class="list"><h3 style="text-align:center;">数据正在加载中...</h3></ul>
+								<div class="pullUp"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer>
+					<a href="#" class="icon pencil"></a>
+				</footer>
+			</div>
+		</div>
+	</body>
+</html>
