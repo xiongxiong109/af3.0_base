@@ -73,7 +73,6 @@
 							<li><a href="#" id="login">登录对话框设置</a></li>
 							<script type="text/javascript">
 								$("#login").click(function(){
-									$.afui.blockUI(.8);
 									$.afui.popup({
 										title:"请登录",
 										message:"用户名:<input type='text' /><br />密码:<input type='password'/>",
@@ -84,6 +83,17 @@
 											setTimeout($.afui.hideMask,2000);
 										}
 									});
+								});
+							</script>
+							<li><a href="#" id="block">遮罩</a></li>
+							<script type="text/javascript">
+								$("#block").click(function(){
+									$.afui.showMask("我是遮罩");
+									$.afui.blockUI(.5);
+									setTimeout(function(){
+										$.afui.unblockUI();
+										$.afui.hideMask();
+									},1000);
 								});
 							</script>
 						</ul>

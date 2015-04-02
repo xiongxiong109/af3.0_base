@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+	<title>af3.0相关api函数</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/icons.css">
+	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/af.ui.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!-- 自定义css -->
+	<style type="text/css">
+		#af_actionsheet a.cancel{display: none;}
+	</style>
+	<script type="text/javascript" charset="utf-8" src="./lib/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/fastclick/1.0.3/fastclick.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
+	<script type="text/javascript">
+		$.afui.autoLaunch=false;
+		$.afui.useOSThemes=false;
+		// $.afui.loadDefaultHash=true;
+		$(function(){
+			setTimeout($.afui.launch(),100);
+			//生成泡泡信息t,b,l,r四个方向
+			$.afui.updateBadge('#userInfo','4','tr');
+			$("#action").click(function(){
+				$.afui.actionsheet([
+						{
+							text:"下拉菜单1",
+							handler:function(){
+								$.afui.popup("我是下拉菜单1");
+							}
+						},
+						{
+							text:"下拉菜单2",
+							handler:function(){
+								$.afui.popup({
+									title:"我是下拉2",
+									message:"这是来自下拉菜单2的提示",
+									cancelText:"取消",
+									doneText:"确定"
+								})
+							}
+						},
+						{
+							text:"返回上一级",
+							cssClasses:"red",
+							handler:function(){
+								$.afui.goBack();
+							}
+						}
+					]);
+			});
+			$("#showLeft").click(function(){
+				$.afui.drawer.show("#left","left","push");
+			});
+			$("#panelEvent").on({
+				"panelload":function(){
+					// $.afui.setBackButtonVisibility(false);
+					$.afui.setBackButtonText("返回");
+				}
+			})
+		});
+	</script>
+</head>
+<body>
+	<div id="afui">
+		<!-- loading view -->
+		<div id="splashscreen">
+			<span class="icon loading spin"></span>
+		</div>
+		<!-- view -->
+		<div class="view active">
+			<header>
+				<h1>af_api</h1>
+			</header>
+			<div class="pages">
+				<div class="panel active" id="api_list">
+					<ul class="list">
+						<li><h3>api列表</h3></li>
+						<li class="divider"></li>
+						<li><a href="#actionsheet">$.afui.actionsheet</a></li>
+						<li><a href="#clear">$.afui.clearHistory</a></li>
+						<li><a href="javascript:;" id="showLeft">用js脚本的方式显示侧边栏</a></li>
+						<li><a href="javascript:;" data-right-menu="right" data-transition="reveal">用data-的方式显示侧边栏</a></li>
+						<li><a href="#panelEvent">panel相关事件</a></li>
+						<li><a href="#" class="icon user" id="userInfo">用户信息(Badge泡泡)</a></li>
+					</ul>
+				</div>
+				<!-- action -->
+				<div class="panel" id="actionsheet">
+					<h3><a class="icon html5"></a>$.afui.actionsheet</h3>
+					<p>用于从下方弹出一个菜单</p>
+					<a id="action" href="#">点我打开弹出下拉菜单</a>
+				</div>
+				<!-- clear -->
+				<div class="panel" id="clear">
+					<h3>$.afui.clearHistory</h3>
+					<p>用于清除历史记录</p>
+					<p>清除历史记录后，与历史记录相关的back按钮可能会消失</p>
+					<a href="#" onclick="$.afui.clearHistory();">清除历史记录</a>
+				</div>
+				<!-- panel events -->
+				<div class="panel" id="panelEvent">
+					<h3>panel相关事件</h3>
+					<ul>
+						<li>panelbeforeload</li>
+						<li>panelload</li>
+						<li>panelbeforeunload</li>
+						<li>panelunload</li>
+					</ul>
+					<p>返回按钮的修改必须要在panelload等事件的回调函数中执行:</p>
+					<p>$("#id").on("panelload",function(){$.afui.setBackButtonText("返回");});</p>
+					<a href="#api_list" onclick="$.afui.loadContent('#api_list',false,false,'pop')">跳转回到主页面</a>
+				</div>
+			</div>
+			<!-- side -->
+			<nav id="left">
+				<header>
+					<h1>左侧边栏</h1>
+				</header>
+				<ul class="list inset">
+					<li>相关的边栏最好用nav标签实现</li>
+					<li>同一个view中可以有多个侧边栏</li>
+					<li style="overflow:auto;">$.afui.draw(id,directory,transition)</li>
+				</ul>
+			</nav>
+			<nav id="right">
+				<header>
+					<h1>右侧边栏</h1>
+				</header>
+				<p>侧边栏的显示transition方式有三种:</p>
+				<ul class="list inset">
+					<li>push</li>
+					<li>reveal</li>
+					<li>cover</li>
+				</ul>
+			</nav>
+		</div>
+	</div>	
+</body>
+</html> 
